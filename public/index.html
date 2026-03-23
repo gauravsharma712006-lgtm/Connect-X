@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Video Chat</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    h1 { color: white; text-align: center; }
+    #status {
+      text-align: center;
+      color: white;
+      background: rgba(0,0,0,0.3);
+      padding: 10px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 400px;
+    }
+    .videos {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    video {
+      width: 400px;
+      height: 300px;
+      background: #000;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    #nextBtn {
+      display: block;
+      margin: 20px auto;
+      padding: 15px 40px;
+      background: #ff4757;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #nextBtn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎥 Random Video Chat</h1>
+  <div id="status">Initializing...</div>
+  
+  <div class="videos">
+    <video id="myVideo" autoplay muted playsinline></video>
+    <video id="remoteVideo" autoplay playsinline></video>
+  </div>
+
+  <button id="nextBtn" disabled>Next Partner</button>
+
+  <!-- USE SERVER'S SOCKET.IO -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="./browser.js"></script>
+</body>
+</html>
